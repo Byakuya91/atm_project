@@ -1,6 +1,6 @@
 "use strict";
 //TODO: Import necessary values from account.js
-const { personalPin } = require("./account");
+let { personalPin } = require("./account");
 let { personalBalance } = require("./account");
 
 // test imported variables.
@@ -30,7 +30,7 @@ function validatePin(enteredPin) {
   //Return value should be a Boolean (true or false)
   //In English: if the PIN entered is correct, return True. Otherwise, return False.
 
-  return enteredPin === personalPin;
+  return parseInt(enteredPin) === personalPin;
 }
 
 // test the functions

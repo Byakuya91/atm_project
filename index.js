@@ -36,9 +36,19 @@ function accessATM() {
   //TODO: Prompt users for their pin
   //Use ATM.js validatePin function to verify pin matches
   //Proceed to main menu ONLY if they match
+  console.log("Please enter your four digit pin");
+  let accessInput = input();
+
+  if (validatePin(accessInput) === true) {
+    console.log("Pin is authenticated");
+  } else {
+    console.log("Pin is not authenticated!");
+  }
 }
 
 //TODO: Call accessATM function
+let testPinAuthentication = accessATM();
+console.log(testPinAuthentication);
 
 function mainMenu() {
   //TODO: Set up a main menu.  Prompt users for ATM selection to do the following:
