@@ -48,3 +48,10 @@ let testPin = validatePin(2191);
 console.log(testPin);
 
 //TODO: Export these functions
+
+module.exports = {
+  getBalance: getBalance,
+  withdraw: withdraw,
+  deposit: deposit,
+  validatePin: validatePin,
+};
