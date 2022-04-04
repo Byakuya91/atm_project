@@ -39,10 +39,15 @@ function accessATM() {
   console.log("Please enter your four digit pin");
   let accessInput = input();
 
+  // let checkedAccessinput = parseInt(accessInput);
+
   if (validatePin(accessInput) === true) {
     console.log("Pin is authenticated");
   } else {
     console.log("Pin is not authenticated!");
+  }
+  if (accessInput.length < 4) {
+    console.log("Please enter the correct number of digits!");
   }
 }
 
