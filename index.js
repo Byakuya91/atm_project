@@ -102,7 +102,7 @@ function mainMenu() {
   while (!noAccessGranted) {
     // display and take input
     console.log(
-      "Welcome! to your account.\nPlease enter the following text to access your account:\n('balance','deposit' 'withdraw'). Or you can enter:\n ('restart', 'quit') to restart and quit, respectively."
+      "\nWelcome!\nPlease enter the following text to access your account:\n('balance','deposit' 'withdraw').\n Or you can enter:\n ('restart', 'quit') to restart and quit, respectively."
     );
     let accountInput = input();
 
@@ -118,7 +118,7 @@ function mainMenu() {
       case "balance":
         // run the balance function
         let totalBalance = getBalance();
-        balanceDisplay = `Your total balance is: ${totalBalance}`;
+        balanceDisplay = `\nYour total balance is: ${totalBalance}`;
         console.log(balanceDisplay);
         break;
       case "deposit":
@@ -128,15 +128,22 @@ function mainMenu() {
         // running the deposit function. Note converting input to Int due to balance being an Int.
         let depositedBalance = deposit(parseInt(depositedInput));
         // displaying what amount was added
-        DepositDisplay = `You have deposited ${depositedBalance} in your account.`;
+        DepositDisplay = `You have deposited ${depositedBalance} towards your account.`;
+        console.log("\n" + DepositDisplay);
         break;
       case "withdraw":
         // take in input for withdrawl
         console.log("Please enter how much you wish to withdraw: ");
         let withdrawInput = input();
+        // run the withdraw function and like deposit covert the input
+        let withdrawBalance = withdraw(parseInt(withdrawInput));
+        WithdrawlDisplay = `You have withdrawn ${withdrawBalance} from your account.`;
+        console.log("\n" + WithdrawlDisplay);
         break;
-        break;
-      case "reset":
+      case "restart":
+        ResetDisplay = " Restarting the program";
+        console.log(ResetDisplay);
+        return mainMenu();
         break;
       default:
         break;
