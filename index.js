@@ -33,21 +33,36 @@ const input = require("prompt-sync")();
 // console.log(`${elementChoice} is what I pick!`);
 
 function accessATM() {
-  //TODO: Prompt users for their pin
-  //Use ATM.js validatePin function to verify pin matches
   //Proceed to main menu ONLY if they match
+
+  // getting input for the PIN
   console.log("Please enter your four digit pin");
   let accessInput = input();
 
+  // counter to check how many times the user enters their PIN.
+  let numberOfAttempts = 0;
+  console.log(numberOfAttempts);
+
   // let checkedAccessinput = parseInt(accessInput);
 
+  // checking if entered PIN equals PIN on record
   if (validatePin(accessInput) === true) {
     console.log("Pin is authenticated");
   } else {
+    // PIN is not the same as PIN on record. numberOfAttempts ticked for failure
     console.log("Pin is not authenticated!");
+    numberOfAttempts++;
+    // recursing through the function
+    accessATM();
   }
+  // Checking if the PIN length is four. numberofAttempts  ticked if input failed.
   if (accessInput.length < 4) {
     console.log("Please enter the correct number of digits!");
+    numberOfAttempts++;
+  }
+
+  if (numberOfAttempts > 4) {
+    console.log("Sorry, you've used  your maximum attempts.Access denied! ");
   }
 }
 
