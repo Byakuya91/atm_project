@@ -146,6 +146,7 @@ function mainMenu() {
         return mainMenu();
         break;
       default:
+        console.log("Invalid input. Please enter the appropirate input.");
         break;
     }
   }
@@ -153,4 +154,4 @@ function mainMenu() {
 
 //TODO: Call mainMenu function to start our app!
 
-mainMenu();
+// mainMenu();

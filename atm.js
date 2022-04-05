@@ -41,11 +41,11 @@ function validatePin(enteredPin) {
 // let testWithdrawl = withdraw(100);
 // console.log(testWithdrawl);
 
-// let testDesposit = deposit(100);
-// console.log(testDesposit);
+let testDesposit = deposit(100);
+console.log(testDesposit);
 
-let testPin = validatePin(2191);
-console.log(testPin);
+// let testPin = validatePin(2191);
+// console.log(testPin);
 
 //TODO: Export these functions
 
