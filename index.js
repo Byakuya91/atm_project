@@ -43,26 +43,34 @@ function accessATM() {
   let numberOfAttempts = 0;
   console.log(numberOfAttempts);
 
-  // let checkedAccessinput = parseInt(accessInput);
+  // create a boolean for our listener loop
+  let permissionGranted = false;
 
-  // checking if entered PIN equals PIN on record
-  if (validatePin(accessInput) === true) {
-    console.log("Pin is authenticated");
-  } else {
-    // PIN is not the same as PIN on record. numberOfAttempts ticked for failure
-    console.log("Pin is not authenticated!");
-    numberOfAttempts++;
-    // recursing through the function
-    accessATM();
-  }
-  // Checking if the PIN length is four. numberofAttempts  ticked if input failed.
-  if (accessInput.length < 4) {
-    console.log("Please enter the correct number of digits!");
-    numberOfAttempts++;
-  }
+  // listener loop
+  while (!permissionGranted) {
+    //  checking if entered PIN is equal to the correct PIN
+    if (validatePin(accessInput) === true) {
+      console.log("PIN is authenticated.");
+      // ending loop if the user gets the right pin.
+      permissionGranted = true;
+      // execute Main function here
+    } else {
+      // PIN is not equal to correct PIN
+      numberOfAttempts++;
+      console.log("PIN do not match!");
+    }
 
-  if (numberOfAttempts > 4) {
-    console.log("Sorry, you've used  your maximum attempts.Access denied! ");
+    // checking if the user's PIN length is equal to four
+    if (accessInput.length < 4) {
+      console.log("Please enter the correct number of digits");
+      // numberOfAttempts++;
+    }
+
+    // if the user exceeds the numberOfAttempts
+    if (numberOfAttempts === 4) {
+      console.log("You've exceeded the number of attempts. Acess denied!");
+      permissionGranted = true;
+    }
   }
 }
 
