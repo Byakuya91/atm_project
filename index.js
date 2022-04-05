@@ -76,8 +76,8 @@ function accessATM() {
 }
 
 //TODO: Call accessATM function
-let testPinAuthentication = accessATM();
-console.log(testPinAuthentication);
+// let testPinAuthentication = accessATM();
+// console.log(testPinAuthentication);
 
 function mainMenu() {
   //TODO: Set up a main menu.  Prompt users for ATM selection to do the following:
@@ -99,42 +99,43 @@ function mainMenu() {
   let quitDisplay = "";
 
   // listener Loop
- while(!noAccessGranted){
+  while (!noAccessGranted) {
+    // display and take input
+    console.log(
+      "Welcome! to your account.\nPlease enter the following text to access your account:\n('balance','deposit' 'withdraw'). Or you can enter:\n ('restart', 'quit') to restart and quit, respectively."
+    );
+    let accountInput = input();
 
-  // display and take input
-  console.log("Welcome! to your account.Please enter the following text to access your account\n('balance','deposit' 'withdraw'). Or you can enter ('restart', 'quit') to restart and quit, respectively.")
-  let accountInput = input();
+    switch (accountInput) {
+      case "quit":
+        // storing message
+        quitDisplay =
+          "This application will be closing. Thank you for accessing it.";
+        // displaying message
+        console.log(quitDisplay);
+        // quiting the application.
+        noAccessGranted = true;
+      case "balance":
+        // run the balance function
+        let totalBalance = getBalance();
+        balanceDisplay = `Your total balance is: ${totalBalance}`;
+        console.log(balanceDisplay);
+        break;
+      case "deposit":
+        // take in input for the deposit.
 
-  switch(accountInput){
-    case: "quit";
-    break;
-    case: "balance";
-    break;
-    case: "deposit";
-    break; 
-    case:"withdraw":
-    break;
-    case: "reset";
-    break;
-    default:
-      break;
-
-
-
-
-
-
-
+        break;
+      case "withdraw":
+        // take in input for the deposit
+        break;
+      case "reset":
+        break;
+      default:
+        break;
+    }
   }
-
-
-
- }
-
-
-
-
-
 }
 
 //TODO: Call mainMenu function to start our app!
+
+mainMenu();
