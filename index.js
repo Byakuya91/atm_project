@@ -125,11 +125,16 @@ function mainMenu() {
         // take in input for the deposit.
         console.log("Please enter how much you wish to deposit: ");
         let depositedInput = input();
+        // running the deposit function. Note converting input to Int due to balance being an Int.
         let depositedBalance = deposit(parseInt(depositedInput));
+        // displaying what amount was added
         DepositDisplay = `You have deposited ${depositedBalance} in your account.`;
         break;
       case "withdraw":
-        // take in input for the deposit
+        // take in input for withdrawl
+        console.log("Please enter how much you wish to withdraw: ");
+        let withdrawInput = input();
+        break;
         break;
       case "reset":
         break;
