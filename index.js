@@ -87,6 +87,54 @@ function mainMenu() {
   //Make a withdrawal
   //Restart
   //Quit
+
+  // create boolean for listener loop
+  let noAccessGranted = false;
+
+  // create display variables
+  let balanceDisplay = "";
+  let DepositDisplay = "";
+  let WithdrawlDisplay = "";
+  let ResetDisplay = "";
+  let quitDisplay = "";
+
+  // listener Loop
+ while(!noAccessGranted){
+
+  // display and take input
+  console.log("Welcome! to your account.Please enter the following text to access your account\n('balance','deposit' 'withdraw'). Or you can enter ('restart', 'quit') to restart and quit, respectively.")
+  let accountInput = input();
+
+  switch(accountInput){
+    case: "quit";
+    break;
+    case: "balance";
+    break;
+    case: "deposit";
+    break; 
+    case:"withdraw":
+    break;
+    case: "reset";
+    break;
+    default:
+      break;
+
+
+
+
+
+
+
+  }
+
+
+
+ }
+
+
+
+
+
 }
 
 //TODO: Call mainMenu function to start our app!
