@@ -50,9 +50,11 @@ function accessATM() {
     //  checking if entered PIN is equal to the correct PIN
     if (validatePin(accessInput) === true) {
       console.log("PIN is authenticated.");
-      // ending loop if the user gets the right pin.
-      permissionGranted = true;
+
       // execute Main function here
+      mainMenu();
+      // ending the listener loop upon entering the mainMenu
+      break;
     }
     // checking if the user's PIN length is equal to four
     else if (accessInput.length < 4) {
@@ -76,8 +78,9 @@ function accessATM() {
 }
 
 //TODO: Call accessATM function
-// let testPinAuthentication = accessATM();
-// console.log(testPinAuthentication);
+let testPinAuthentication = accessATM();
+
+console.log(testPinAuthentication);
 
 function mainMenu() {
   //TODO: Set up a main menu.  Prompt users for ATM selection to do the following:
@@ -128,7 +131,7 @@ function mainMenu() {
         // running the deposit function. Note converting input to Int due to balance being an Int.
         let depositedBalance = deposit(parseInt(depositedInput));
         // displaying what amount was added
-        DepositDisplay = `You have deposited ${depositedBalance} towards your account.`;
+        DepositDisplay = `You have deposited ${depositedInput} towards your account.`;
         console.log("\n" + DepositDisplay);
         break;
       case "withdraw":
@@ -137,7 +140,7 @@ function mainMenu() {
         let withdrawInput = input();
         // run the withdraw function and like deposit covert the input
         let withdrawBalance = withdraw(parseInt(withdrawInput));
-        WithdrawlDisplay = `You have withdrawn ${withdrawBalance} from your account.`;
+        WithdrawlDisplay = `You have withdrawn ${withdrawInput} from your account.`;
         console.log("\n" + WithdrawlDisplay);
         break;
       case "restart":
